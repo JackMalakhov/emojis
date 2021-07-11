@@ -1,0 +1,20 @@
+<ul>
+  <li *ngFor="let emoji of emojiService.emojiList; let i = index;">
+    <div class="emoji__block" *ngIf="!emoji.del">
+      <strong>{{i+1}}</strong>
+      <p>{{emoji.name}}</p>
+      <a href="{{emoji.href}}" target="_blank">link</a>
+      <img src="{{emoji.href}}" alt="" [class.check]="emoji.star">
+      <button (click)="onChange(emoji.id)">
+        <img src="../../assets/images/star_77949.svg" alt="">
+      </button>
+      <button (click)="delEmoji(emoji.id)">
+        <img src="../../assets/images/Delete-80_icon-icons.com_57340.svg" alt="">
+      </button>
+
+    </div>
+
+  </li>
+</ul>
+
+
