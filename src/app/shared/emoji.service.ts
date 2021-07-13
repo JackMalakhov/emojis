@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { JsonPipe } from "@angular/common";
+
 
 
 export interface EmojiInterface{
@@ -21,6 +21,8 @@ export class EmojiService {
   public favouriteShown = false;
   public deletedShown = false;
 
+  public appTitle = "EMOJIS-APP"
+
   constructor(private http: HttpClient){}
 
   public searchString ='';
@@ -29,18 +31,21 @@ export class EmojiService {
     this.emojiShown = true;
     this.favouriteShown = false;
     this.deletedShown = false;
+    this.appTitle = "EMOJIS-APP"
   }
 
   showFavourite(){
     this.emojiShown = false;
     this.favouriteShown = true;
     this.deletedShown = false;
+    this.appTitle = "EMOJIS-APP | favourite"
   }
 
   showDeleted(){
     this.emojiShown = false;
     this.favouriteShown = false;
     this.deletedShown = true;
+    this.appTitle = "EMOJIS-APP | deleted"
   }
 
 

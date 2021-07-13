@@ -1,6 +1,9 @@
 $highlight: gold;
 $delete: red;
 $white: white;
+$black: black;
+$blue: rgb(191, 221, 235);
+$blue-half: rgba(191, 221, 235, 0.3);
 
 li {
   list-style-type: none;
@@ -16,4 +19,9 @@ li {
   text-decoration: none;
   outline: none;
   color: black;
+}
+input[type=text]{
+  outline: none;
+  border-radius: 5px;
+  border: 3px solid rgb(191, 221, 235);
 }

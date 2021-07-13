@@ -3,13 +3,16 @@
 .favourite{
   display: grid;
   grid-template-columns: repeat(5, 1fr );
+  margin-top: 100px;
 }
 
 .favourite__block{
+  position: relative;
   display: grid;
   grid-auto-flow: row;
   justify-items: center;
-  border: 1px solid rgb(201, 99, 255);
+  border: 3px solid $blue;
+
   border-radius: 15px;
   padding: 2%;
 }
@@ -18,27 +21,40 @@
 }
 .favourite__btn{
   position: absolute;
+  top: 5px;
+  right: 5px;
   background: none;
   border: none;
   .favourite__icon-del{
-    opacity: 0.5;
+    fill: $blue;
+
   }
   &:hover{
     .favourite__icon-del{
       transition: all .3s ease;
-      opacity: 1;
       fill: red;
     }
   }
 }
+
+.favourite__img{
+  margin: 100px 0;
+}
+
+.favourite__name{
+  color: black;
+}
+
 .favourite__link{
   transition: all .3s ease;
   margin: 2%;
-  padding: 2%;
+  padding: 2% 5%;
   border-radius: 15px;
-  background: rgb(230, 184, 255);
-  color: white;
+  // border: 3px solid $blue;
+  background: $blue-half;
+  color: black;
   &:hover{
-    background: rgb(201, 99, 255);
+    background: $blue;
+    color: white;
   }
 }

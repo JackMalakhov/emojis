@@ -1,36 +1,84 @@
 @import '../app.component.scss';
+
+.deleted{
+  margin-top: 100px;
+}
+
+.deleted__item{
+  display: grid;
+}
+
 .deleted__block{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr min-content;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
-  border: 1px solid grey;
-  background: grey;
+  padding: 10px;
+  border-radius: 15px;
+  transition: all .3s ease;
+  background: $blue-half;
+  &:hover{
+    background: $blue;
+    .deleted__link{
+      color: $white;
+      opacity: 1;
+      &:hover{
+        transition: .3s;
+        color:$highlight;
+      }
+    }
+    .deleted__btn{
+      .deleted__icon-del{
+        fill: $white;
+        opacity: 1;
+      }
+      &:hover{
+        .deleted__icon-del{
+          transition: .3s;
+          fill: $highlight;
+        }
+      }
+    }
+    .deleted__name{
+      color: $white;
+      opacity: 1;
+    }
+
+    .deleted__img{
+      opacity: 1;
+    }
+  }
 }
 
 .deleted__img{
   width: 25px;
+  opacity: 0.5;
+}
+
+.deleted__icon-del{
+  // transition: all .3s ease;
+  fill: $black;
+  opacity: 0.5;
 }
 
 .deleted__btn{
   background: none;
   border: none;
-  .deleted__icon-del{
-    fill: $white
-  }
-  &:hover{
-    .deleted__icon-del{
-      transition: all .3s ease;
-      fill: $highlight
-    }
-  }
 
 }
 
 .deleted__link{
-  color: $white
+  color: $black;
+  opacity: 0.5;
+
 }
 
 .deleted__name{
-  color:$white
+  color:$black;
+  opacity: 0.5;
+
+}
+
+.deleted__show{
+  display: none;
 }

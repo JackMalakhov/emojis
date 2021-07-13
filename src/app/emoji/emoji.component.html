@@ -1,22 +1,7 @@
 
 <div class="emoji" *ngIf="emojiService.emojiShown">
 
-  <div class="emoji__about about">
-    <ul class="about__block">
-      <li class="about__item">
-        Имя
-      </li>
-      <li class="about__item">
-        Ссылка
-      </li>
-      <li class="about__item">
-        Превью
-      </li>
-      <li class="about__item">
-        Действия
-      </li>
-    </ul>
-  </div>
+
   <ul class="emoji__list">
     <li *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;">
       <div class="emoji__block" *ngIf="!emoji.del" [class.emoji__favourite-block]="emoji.star">

@@ -1,11 +1,11 @@
-<div class="page__deleted" *ngIf="emojiService.deletedShown">
+<div class="deleted" *ngIf="emojiService.deletedShown">
 
-<ul class="deleted">
-  <li class="deleted__item" *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;">
+<ul class="deleted__list">
+  <li class="deleted__item" *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;" [class.deleted__show]="!emoji.del">
     <div class="deleted__block" *ngIf="emoji.del">
-      <img class="deleted__img" src="{{emoji.href}}" alt="{{emoji.name}}">
       <p class="deleted__name">{{emoji.name}}</p>
-      <a class="deleted__link" href="{{emoji.href}}" target="_blank">open image</a>
+      <a class="deleted__link" href="{{emoji.href}}" target="_blank">open emoji</a>
+      <img class="deleted__img" src="{{emoji.href}}" alt="{{emoji.name}}">
       <button class="deleted__btn" (click)="delEmoji(emoji.id)">
         <svg class="deleted__icon-del" width="25px" height="25px">
           <use xlink:href="#back" width="25px" height="25px"></use>
