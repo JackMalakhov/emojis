@@ -1,0 +1,28 @@
+.header{
+  top: 0;
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  background:white;
+  z-index: 8999;
+
+}
+
+.nav__btn{
+  box-sizing: border-box;
+  background: none;
+  border:none;
+  margin: 0 10px;
+  padding:5px 10px;
+
+  &:hover{
+    box-sizing: border-box;
+    padding:2px 7px;
+    border: 3px solid rgb(191, 221, 235);
+    border-radius: 15px;
+  }
+}

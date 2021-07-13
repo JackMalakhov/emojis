@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { EmojiService } from '../shared/emoji.service';
 
 @Component({
@@ -9,14 +8,14 @@ import { EmojiService } from '../shared/emoji.service';
 })
 export class EmojiComponent implements OnInit {
 
-  constructor(public emojiService: EmojiService,
-    private http: HttpClient) { }
+  public searchString ='';
+
+  constructor(public emojiService: EmojiService) { }
 
   ngOnInit(): void {
     this.emojiService.fetchEmojis()
   }
   onChange(id: number){
-    // this.onToggle.emit(id)
     this.emojiService.onToggle(id)
   }
 

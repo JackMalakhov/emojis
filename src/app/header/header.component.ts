@@ -8,13 +8,25 @@ import { EmojiService } from '../shared/emoji.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  appTitle = "EMOJIS-APP"
 
-
-  constructor(
+  constructor(public emojiService: EmojiService
   ) { }
 
   ngOnInit(): void {
     // this._http: get()
+  }
+
+  showEmojis(){
+    this.emojiService.showEmojis()
+  }
+
+  showFavourite(){
+    this.emojiService.showFavourite()
+  }
+
+  showDeleted(){
+    this.emojiService.showDeleted()
   }
 
 

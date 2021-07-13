@@ -1,0 +1,22 @@
+<header class="header">
+  <span>{{appTitle}}</span>
+
+  <nav class="header__nav nav">
+    <button class="nav__btn" (click)="showEmojis()">
+      ВСЕ
+    </button>
+    <button class="nav__btn" (click)="showFavourite()">
+      ЛЮБИМЫЕ
+    </button>
+    <button class="nav__btn" (click)="showDeleted()">
+      УДАЛЕННЫЕ
+    </button>
+  </nav>
+
+  <div class="header__search">
+    <input class="header__input" type="text" placeholder="Искать.." [(ngModel)]="emojiService.searchString">
+  </div>
+</header>
+
+
+

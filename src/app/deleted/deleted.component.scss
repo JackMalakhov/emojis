@@ -1,0 +1,36 @@
+@import '../app.component.scss';
+.deleted__block{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr min-content;
+  align-items: center;
+  justify-items: center;
+  border: 1px solid grey;
+  background: grey;
+}
+
+.deleted__img{
+  width: 25px;
+}
+
+.deleted__btn{
+  background: none;
+  border: none;
+  .deleted__icon-del{
+    fill: $white
+  }
+  &:hover{
+    .deleted__icon-del{
+      transition: all .3s ease;
+      fill: $highlight
+    }
+  }
+
+}
+
+.deleted__link{
+  color: $white
+}
+
+.deleted__name{
+  color:$white
+}

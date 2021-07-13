@@ -1,0 +1,15 @@
+<ul class="favourite" *ngIf="emojiService.favouriteShown">
+  <li *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;" [class.favourite__show]="!emoji.star || emoji.del">
+    <div class="favourite__block" *ngIf="!emoji.del && emoji.star">
+      <button class="favourite__btn" (click)="onChange(emoji.id)">
+        <svg class="favourite__icon-del" width="25px" height="25px">
+          <use xlink:href="#del" width="25px" height="25px"></use>
+        </svg>
+      </button>
+      <img src="{{emoji.href}}" alt="{{emoji.name}}">
+      <p>{{emoji.name}}</p>
+      <a class="favourite__link" href="{{emoji.href}}" target="_blank">open image</a>
+
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,44 @@
+@import '../app.component.scss';
+
+.favourite{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr );
+}
+
+.favourite__block{
+  display: grid;
+  grid-auto-flow: row;
+  justify-items: center;
+  border: 1px solid rgb(201, 99, 255);
+  border-radius: 15px;
+  padding: 2%;
+}
+.favourite__show{
+  display: none;
+}
+.favourite__btn{
+  position: absolute;
+  background: none;
+  border: none;
+  .favourite__icon-del{
+    opacity: 0.5;
+  }
+  &:hover{
+    .favourite__icon-del{
+      transition: all .3s ease;
+      opacity: 1;
+      fill: red;
+    }
+  }
+}
+.favourite__link{
+  transition: all .3s ease;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 15px;
+  background: rgb(230, 184, 255);
+  color: white;
+  &:hover{
+    background: rgb(201, 99, 255);
+  }
+}
