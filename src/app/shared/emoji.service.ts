@@ -38,14 +38,14 @@ export class EmojiService {
     this.emojiShown = false;
     this.favouriteShown = true;
     this.deletedShown = false;
-    this.appTitle = "EMOJIS-APP | favourite"
+    this.appTitle = "EMOJIS-APP | любимые"
   }
 
   showDeleted(){
     this.emojiShown = false;
     this.favouriteShown = false;
     this.deletedShown = true;
-    this.appTitle = "EMOJIS-APP | deleted"
+    this.appTitle = "EMOJIS-APP | удаленные"
   }
 
 
