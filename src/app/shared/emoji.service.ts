@@ -66,10 +66,9 @@ export class EmojiService {
             "del": false
           }
           localStorage.setItem(i.toString(), JSON.stringify(this.emojiList[i]))
-          // console.log(JSON.parse(localStorage.getItem(i.toString())!))
           i+=1;
         }
-        // const item1 = localStorage.getItem("1");
+
 
       })
     } else{
@@ -83,10 +82,7 @@ export class EmojiService {
           "del": item.del
         }
       }
-
     }
-
-
   }
 
 

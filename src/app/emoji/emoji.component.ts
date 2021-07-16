@@ -13,7 +13,7 @@ export class EmojiComponent implements OnInit {
   constructor(public emojiService: EmojiService) { }
 
   ngOnInit(): void {
-    this.emojiService.fetchEmojis()
+    // this.emojiService.fetchEmojis()
   }
   onChange(id: number){
     this.emojiService.onToggle(id)

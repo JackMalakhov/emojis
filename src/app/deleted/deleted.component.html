@@ -1,4 +1,5 @@
-<div class="deleted" *ngIf="emojiService.deletedShown">
+<div class="deleted" >
+  <!-- *ngIf="emojiService.deletedShown" -->
 
 <ul class="deleted__list">
   <li class="deleted__item" *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;" [class.deleted__show]="!emoji.del">

@@ -11,6 +11,7 @@ export class FavouriteComponent implements OnInit {
   constructor(public emojiService: EmojiService) { }
 
   ngOnInit(): void {
+    // this.emojiService.fetchEmojis()
   }
 
   delEmoji(id:number){

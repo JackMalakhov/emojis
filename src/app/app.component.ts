@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EmojiService } from './shared/emoji.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,12 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(public emojiService: EmojiService
+    ) { }
 
-
-
-  ngOnInit(): void {
-
-  }
-
-
+  ngOnInit(): void { this.emojiService.fetchEmojis()}
 }

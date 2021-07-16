@@ -22,9 +22,9 @@
 </div>
 
 <nav class="header__nav nav">
-  <a class="nav__btn" (click)="showEmojis()" [class.nav__active]="emojiService.emojiShown">ВСЕ</a>
-  <a class="nav__btn" (click)="showFavourite()" [class.nav__active]="emojiService.favouriteShown">ЛЮБИМЫЕ</a>
-  <a class="nav__btn" (click)="showDeleted()" [class.nav__active]="emojiService.deletedShown">УДАЛЕННЫЕ</a>
+  <a class="nav__btn" (click)="showEmojis()" [class.nav__active]="emojiService.emojiShown" routerLink="/">ВСЕ</a>
+  <a class="nav__btn" (click)="showFavourite()" [class.nav__active]="emojiService.favouriteShown" routerLink="/favourite">ЛЮБИМЫЕ</a>
+  <a class="nav__btn" (click)="showDeleted()" [class.nav__active]="emojiService.deletedShown" routerLink="/deleted">УДАЛЕННЫЕ</a>
 </nav>
 </header>
 

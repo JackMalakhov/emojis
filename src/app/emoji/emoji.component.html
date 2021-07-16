@@ -1,12 +1,13 @@
 
-<div class="emoji" *ngIf="emojiService.emojiShown">
+<div class="emoji" >
+  <!-- *ngIf="emojiService.emojiShown" -->
 
 
   <ul class="emoji__list">
     <li *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;">
       <div class="emoji__block" *ngIf="!emoji.del" [class.emoji__favourite-block]="emoji.star">
         <strong>{{emoji.name}}</strong>
-        <a class="emoji__link" href="{{emoji.href}}" target="_blank">{{emoji.href}}</a>
+        <a class="emoji__link" href="{{emoji.href}}" target="_blank">open emoji</a>
         <img class="emoji__img" src="{{emoji.href}}" alt="{{emoji.name}}" [class.emoji__favourite]="emoji.star">
         <button class="emoji__btn" (click)="onChange(emoji.id)">
           <svg class="emoji__icon-star" width="25px" height="25px" [class.emoji__favourite-star]="emoji.star">
@@ -18,9 +19,7 @@
             <use xlink:href="#del"></use>
           </svg>
         </button>
-
       </div>
-
     </li>
   </ul>
 
