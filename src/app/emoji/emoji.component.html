@@ -1,26 +1,43 @@
 
-<div class="emoji" >
-  <!-- *ngIf="emojiService.emojiShown" -->
+<div class="container">
 
-
-  <ul class="emoji__list">
-    <li *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;">
-      <div class="emoji__block" *ngIf="!emoji.del" [class.emoji__favourite-block]="emoji.star">
-        <strong>{{emoji.name}}</strong>
-        <a class="emoji__link" href="{{emoji.href}}" target="_blank">open emoji</a>
-        <img class="emoji__img" src="{{emoji.href}}" alt="{{emoji.name}}" [class.emoji__favourite]="emoji.star">
-        <button class="emoji__btn" (click)="onChange(emoji.id)">
-          <svg class="emoji__icon-star" width="25px" height="25px" [class.emoji__favourite-star]="emoji.star">
-            <use xlink:href="#star"></use>
-          </svg>
-        </button>
-        <button class="emoji__btn" (click)="delEmoji(emoji.id)">
-          <svg class="emoji__icon-del" width="25px" height="25px">
-            <use xlink:href="#del"></use>
-          </svg>
-        </button>
+  <div class="header__about about">
+    <ul class="about__block">
+      <li class="about__item" *ngFor="let item of about">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+<ng-container *ngIf="(emojiList | emojiSearch:emojiService.searchString) as result">
+  <ng-container *ngIf="result.length!=0; else empty">
+    <cdk-virtual-scroll-viewport itemSize="90" minBufferPx="600" maxBufferPx="1000" #i>
+      <div *cdkVirtualFor="let emoji of result">
+        <div class="emoji__block" [class.emoji__favourite-block]="emoji.star">
+          <strong>{{emoji.name}}</strong>
+          <a class="emoji__link" href="{{emoji.href}}" target="_blank">open emoji</a>
+          <img class="emoji__img" src="{{emoji.href}}" alt="{{emoji.name}}" [class.emoji__favourite]="emoji.star">
+          <button class="emoji__btn" (click)="starEmoji(emoji.id)">
+            <svg class="emoji__icon-star" width="25px" height="25px" [class.emoji__favourite-star]="emoji.star">
+              <use xlink:href="#star"></use>
+            </svg>
+          </button>
+          <button class="emoji__btn" (click)="delEmoji(emoji.id)">
+            <svg class="emoji__icon-del" width="25px" height="25px">
+              <use xlink:href="#del"></use>
+            </svg>
+          </button>
+        </div>
       </div>
-    </li>
-  </ul>
+    </cdk-virtual-scroll-viewport>
+  </ng-container>
+  <ng-template #empty>
+    <div class="empty">
+      <svg class="emoji__icon-del" width="150px" height="150px">
+        <use xlink:href="#empty-box"></use>
+      </svg>
+    </div>
+  </ng-template>
+</ng-container>
+
 
 </div>

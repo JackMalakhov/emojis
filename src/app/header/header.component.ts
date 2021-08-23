@@ -1,6 +1,7 @@
-import { Component,  OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { EmojiService } from '../shared/emoji.service';
+import { KeyValue } from '@angular/common';
+import { Component,  ElementRef,  OnInit} from '@angular/core';
+import { EmojiService } from '../service/emoji.service';
+import { HeaderAbout, HeaderLinks } from './model/header-info';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,19 @@ import { EmojiService } from '../shared/emoji.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  appTitle = "EMOJIS-APP"
+  appTitle = "EMOJIS-APP";
+  cBlack= 'white';
+  themeMode = "Dark Mode";
+  links = HeaderLinks;
+  public originalOrder = (a: KeyValue<string,string>, b: KeyValue<string,string>): number => {
+    return 0;}
+
+
+  changeTheme(){
+    this.themeMode = (this.themeMode=="Dark Mode") ? "Light Mode" : "Dark Mode"
+    console.log()
+
+  }
 
   constructor(public emojiService: EmojiService
   ) { }
@@ -16,18 +29,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showEmojis(){
-    this.emojiService.showEmojis()
+  link = '/';
+  setLink(item:string):string{
+    return this.link = item;
   }
-
-  showFavourite(){
-    this.emojiService.showFavourite()
+  isLink(item:string):boolean{
+    return this.link===item;
   }
-
-  showDeleted(){
-    this.emojiService.showDeleted()
-  }
-
 
   }
 

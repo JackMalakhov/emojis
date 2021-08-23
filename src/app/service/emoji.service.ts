@@ -1,92 +1,65 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-
-
-
-export interface EmojiInterface{
-  id: number,
-  name: string
-  href: string
-  star: boolean
-  del: boolean
-}
-
+import { EmojiInterface } from "../model/emoji-interface";
 
 @Injectable({providedIn: 'root'})
+
 export class EmojiService {
   responce: any;
-  public emojiList: EmojiInterface[] =[]
+  emojiList: EmojiInterface[] =[]
+  searchString ='';
+  appTitle = "EMOJIS-APP"
 
-  public emojiShown = true;
-  public favouriteShown = false;
-  public deletedShown = false;
-
-  public appTitle = "EMOJIS-APP"
-
-  constructor(private http: HttpClient){}
-
-  public searchString ='';
-
-  showEmojis(){
-    this.emojiShown = true;
-    this.favouriteShown = false;
-    this.deletedShown = false;
-    this.appTitle = "EMOJIS-APP"
-  }
-
-  showFavourite(){
-    this.emojiShown = false;
-    this.favouriteShown = true;
-    this.deletedShown = false;
-    this.appTitle = "EMOJIS-APP | любимые"
-  }
-
-  showDeleted(){
-    this.emojiShown = false;
-    this.favouriteShown = false;
-    this.deletedShown = true;
-    this.appTitle = "EMOJIS-APP | удаленные"
-  }
-
-
+  constructor(
+    private http: HttpClient
+    ){}
 
   fetchEmojis(){
-    if (localStorage.length==0){
+    if (localStorage.length===NaN){
       let i = 0;
       this.http.get('https://api.github.com/emojis' )
         .subscribe((responce)=>{
           this.responce = responce;
-
           for (let item in this.responce){
           this.emojiList[i]={
-            "id": i,
-            "name": item,
-            "href": this.responce[item],
-            "star": false,
-            "del": false
+            id: i,
+            name: item,
+            href: this.responce[item],
+            star: false,
+            del: false
           }
           localStorage.setItem(i.toString(), JSON.stringify(this.emojiList[i]))
+
           i+=1;
         }
-
-
       })
+
     } else{
       for (let i =0; i<localStorage.length; i++){
         let item = JSON.parse(localStorage.getItem(i.toString())!)
         this.emojiList[i] ={
-          "id": i,
-          "name": item.name,
-          "href": item.href,
-          "star": item.star,
-          "del": item.del
+          id: item.id,
+          name: item.name,
+          href: item.href,
+          star: item.star,
+          del: item.del
         }
       }
     }
   }
 
+  action(id:number, entity:string){
+    const idx = this.emojiList.findIndex(t=>t.id===id);
+    this.emojiList[idx].star = !this.emojiList[idx].star;
 
-  onToggle(id: number){
+
+  }
+
+  getList():EmojiInterface[]{
+    return this.emojiList;
+  }
+
+  starEmoji(id: number){
     const idx = this.emojiList.findIndex(t=>t.id===id)
     this.emojiList[idx].star = !this.emojiList[idx].star;
     const star = JSON.parse(localStorage.getItem(id.toString())!)

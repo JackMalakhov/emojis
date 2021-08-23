@@ -16,31 +16,31 @@
   padding: 10px;
   border-radius: 15px;
   transition: all .3s ease;
-  background: $blue-half;
+  background: var(--c-tr-blue);
   &:hover{
-    background: $blue;
+    background: var(--c-blue);
     .deleted__link{
-      color: $white;
+      color: var(--c-white);
       opacity: 1;
       &:hover{
         transition: .3s;
-        color:$highlight;
+        color:var(--c-like);
       }
     }
     .deleted__btn{
       .deleted__icon-del{
-        fill: $white;
+        fill: var(--c-white);
         opacity: 1;
       }
       &:hover{
         .deleted__icon-del{
           transition: .3s;
-          fill: $highlight;
+          fill: var(--c-like);
         }
       }
     }
     .deleted__name{
-      color: $white;
+      color: var(--c-white);
       opacity: 1;
     }
 
@@ -57,7 +57,7 @@
 
 .deleted__icon-del{
   // transition: all .3s ease;
-  fill: $black;
+  fill: var(--c-black);
   opacity: 0.5;
 }
 
@@ -68,13 +68,13 @@
 }
 
 .deleted__link{
-  color: $black;
+  color: var(--c-black);
   opacity: 0.5;
 
 }
 
 .deleted__name{
-  color:$black;
+  color:var(--c-black);
   opacity: 0.5;
 
 }

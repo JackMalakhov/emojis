@@ -1,31 +1,22 @@
 <header class="header">
-<div class="header__block">
-  <span class="header__logo">{{emojiService.appTitle}}</span>
-  <input class="header__input" type="text" placeholder="Искать.." [(ngModel)]="emojiService.searchString">
-</div>
+  <div class="header__block">
+    <div class="header__logo">{{emojiService.appTitle}}</div>
+    <input class="header__input" type="text" placeholder="Искать.." [(ngModel)]="emojiService.searchString">
+  </div>
+<hr>
 
-<div class="header__about about" *ngIf="emojiService.emojiShown">
-  <ul class="about__block">
-    <li class="about__item" >
-      Имя
-    </li>
-    <li class="about__item">
-      Ссылка
-    </li>
-    <li class="about__item">
-      Превью
-    </li>
-    <li class="about__item">
-      Действия
-    </li>
-  </ul>
-</div>
 
-<nav class="header__nav nav">
-  <a class="nav__btn" (click)="showEmojis()" [class.nav__active]="emojiService.emojiShown" routerLink="/">ВСЕ</a>
-  <a class="nav__btn" (click)="showFavourite()" [class.nav__active]="emojiService.favouriteShown" routerLink="/favourite">ЛЮБИМЫЕ</a>
-  <a class="nav__btn" (click)="showDeleted()" [class.nav__active]="emojiService.deletedShown" routerLink="/deleted">УДАЛЕННЫЕ</a>
-</nav>
+  <nav class="header__nav nav">
+    <div
+      class="nav__btn"
+      routerLink="{{item.key}}"
+      (click)="setLink(item.key)"
+      *ngFor="let item of links | keyvalue:originalOrder">
+      <a
+        [class.link-color]="isLink(item.key)"
+      >{{item.value}}</a>
+    </div>
+  </nav>
 </header>
 
 

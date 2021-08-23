@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { EmojiInterface } from './emoji.service';
+import { EmojiInterface } from "../model/emoji-interface";
 
 
 @Pipe({
@@ -10,10 +10,8 @@ export class EmojiSearchpipe implements PipeTransform{
     if (!search.trim()){
       return emojiList
     }
-
     return emojiList.filter(emoji=>{
       return emoji.name.toLowerCase().indexOf(search.toLowerCase()) != -1
     })
-
   }
 }

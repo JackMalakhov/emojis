@@ -1,27 +1,46 @@
-$highlight: gold;
-$delete: red;
-$white: white;
-$black: black;
-$blue: rgb(191, 221, 235);
-$blue-half: rgba(191, 221, 235, 0.3);
+:host{
+  --c-white: rgb(255, 255, 255);
+  --c-black: rgb(0, 0, 0);
+  --c-blue: rgb(191, 221, 235);
+  --c-dark-blue:rgba(6, 54, 77, 0.425);
+  --c-tr-blue: rgba(191, 221, 235, 0.3);
+  --c-like: gold;
+  --c-delete: red;
+  --font-size: 40px;
+}
+
+.dark-mode{
+  --c-white: black;
+  --c-black: white;
+}
 
 li {
   list-style-type: none;
   margin: 2%;
  }
+
  ul {
   margin-left: 0;
   padding-left: 0;
   width: 80%;
   margin: 0 auto;
  }
+
  a{
   text-decoration: none;
   outline: none;
-  color: black;
+  color: var(--c-black)
 }
+
 input[type=text]{
   outline: none;
   border-radius: 5px;
-  border: 3px solid rgb(191, 221, 235);
+  border: 3px solid var(--c-blue)
+}
+
+.empty{
+  margin-top: 30vh;
+  height:150px;
+  text-align: center;
+  fill: var(--c-dark-blue)
 }

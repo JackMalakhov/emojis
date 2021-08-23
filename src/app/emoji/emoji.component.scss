@@ -1,5 +1,19 @@
 @import '../app.component.scss';
 
+
+cdk-virtual-scroll-viewport{
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  height: 100vh;
+}
+
+
+
+.container{
+  padding-top: 50px;
+}
+
 .emoji{
   margin-top: 50px;
 }
@@ -24,12 +38,6 @@
   }
 }
 
-a{
-  text-decoration: none;
-  outline: none;
-  color: black;
-}
-
 .emoji__favourite{
   transform: scale(2.56);
   opacity: 1;
@@ -37,25 +45,26 @@ a{
 
 .emoji__favourite-block{
   transition: all .3s ease;
-  background: rgba(191, 221, 235, 0.3);
+  background: var(--c-tr-blue);
 }
 
 .emoji__favourite-star{
-  fill: $highlight;
+  fill: var(--c-like);
 }
 
 .emoji__block{
+  width: 70%;
+  margin: 0 auto;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(3, 1fr) min-content min-content;
   justify-items: center;
   grid-gap: 5%;
   align-items: center;
-  border: 3px solid rgb(191, 221, 235);
+  border: 3px solid var(--c-blue);
   border-radius:15px;
   padding: 2%;
   text-align: center;
-
 }
 
 button{
@@ -65,15 +74,32 @@ button{
   border: none;
   &:hover{
     .emoji__icon-del{
-      fill: red;
+      fill: var(--c-delete);
       transition: all .3s ease;
     }
     .emoji__icon-star{
-      fill: $highlight;
+      fill: var(--c-like);
       transition: all .3s ease;
     }
   }
 }
+.header__about{
+  background: var(--c-blue);
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 ;
+  color: var(--c-white);
+}
+.about__block{
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 4fr 2fr 2fr;
+  align-items: center;
+  justify-items: center;
+}
+
 
 
 

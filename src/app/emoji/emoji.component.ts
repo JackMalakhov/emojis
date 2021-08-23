@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EmojiService } from '../shared/emoji.service';
+import { HeaderAbout } from '../header/model/header-info';
+import { EmojiInterface } from '../model/emoji-interface';
+import { EmojiService } from '../service/emoji.service';
 
 @Component({
   selector: 'app-emoji',
@@ -8,19 +10,32 @@ import { EmojiService } from '../shared/emoji.service';
 })
 export class EmojiComponent implements OnInit {
 
-  public searchString ='';
+
+  searchString ='';
+  about = HeaderAbout;
 
   constructor(public emojiService: EmojiService) { }
 
-  ngOnInit(): void {
-    // this.emojiService.fetchEmojis()
+  getList():EmojiInterface[]{
+    return this.emojiService.getList().filter(el=>!el.del)
   }
-  onChange(id: number){
-    this.emojiService.onToggle(id)
+  emojiList:EmojiInterface[] = [];
+
+  ngOnInit(): void {
+    this.emojiService.fetchEmojis()
+    this.emojiList = this.getList()
+
+
+  }
+  starEmoji(id: number){
+    this.emojiService.starEmoji(id)
   }
 
   delEmoji(id:number){
     this.emojiService.delEmoji(id)
+    this.emojiList = this.getList()
+
+
   }
 
 

@@ -3,10 +3,16 @@
   position: fixed;
   width: 100%;
   top: 0;
-  background: white;
+  background: var(--c-white);
   z-index: 9000;
 
 }
+
+.dark-mode{
+  --c-white: black;
+  --c-black: white;
+}
+
 .header__block{
   width: 80%;
   margin: 0 auto;
@@ -21,6 +27,11 @@
 .header__logo{
   justify-self: start;
 }
+
+.link-color{
+  transition: all ease .3s;
+  background-color: var(--c-blue);
+  color: var(--c-white);}
 
 
 
@@ -44,32 +55,14 @@
   &:hover{
     box-sizing: border-box;
     padding:2px 7px;
-    border: 3px solid rgb(191, 221, 235);
+    border: 3px solid var(--c-blue);
 
   }
 }
 
 .nav__active{
-  background-color: rgb(191, 221, 235);
-  color: $white;
+  background-color: var(--c-blue);
+  color: var(--c-white);
 }
 
 
-.header__about{
-
-  background: rgb(191, 221, 235);
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 10px;
-  padding: 0 ;
-
-  color: white;
-}
-.about__block{
-  width: 80%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 3fr 4fr 2fr 2fr;
-  align-items: center;
-  justify-items: center;
-}

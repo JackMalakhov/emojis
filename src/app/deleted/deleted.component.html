@@ -1,19 +1,30 @@
 <div class="deleted" >
-  <!-- *ngIf="emojiService.deletedShown" -->
+  <ng-container *ngIf="(emojiList | emojiSearch:emojiService.searchString) as result">
 
-<ul class="deleted__list">
-  <li class="deleted__item" *ngFor="let emoji of emojiService.emojiList | emojiSearch:emojiService.searchString;" [class.deleted__show]="!emoji.del">
-    <div class="deleted__block" *ngIf="emoji.del">
-      <p class="deleted__name">{{emoji.name}}</p>
-      <a class="deleted__link" href="{{emoji.href}}" target="_blank">open emoji</a>
-      <img class="deleted__img" src="{{emoji.href}}" alt="{{emoji.name}}">
-      <button class="deleted__btn" (click)="delEmoji(emoji.id)">
-        <svg class="deleted__icon-del" width="25px" height="25px">
-          <use xlink:href="#back" width="25px" height="25px"></use>
+    <ng-container *ngIf="result.length!=0; else empty">
+      <ul class="deleted__list">
+        <li class="deleted__item" *ngFor="let emoji of result" [class.deleted__show]="!emoji.del">
+          <div class="deleted__block" *ngIf="emoji.del">
+            <p class="deleted__name">{{emoji.name}}</p>
+            <a class="deleted__link" href="{{emoji.href}}" target="_blank">open emoji</a>
+            <img class="deleted__img" src="{{emoji.href}}" alt="{{emoji.name}}">
+            <button class="deleted__btn" (click)="delEmoji(emoji.id)">
+              <svg class="deleted__icon-del" width="25px" height="25px">
+                <use xlink:href="#back" width="25px" height="25px"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </ng-container>
+
+    <ng-template #empty>
+      <div class="empty">
+        <svg class="emoji__icon-del" width="150px" height="150px">
+          <use xlink:href="#empty-box"></use>
         </svg>
-      </button>
-    </div>
+      </div>
+    </ng-template>
+  </ng-container>
 
-  </li>
-</ul>
 </div>

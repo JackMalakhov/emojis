@@ -1,5 +1,6 @@
 @import '../app.component.scss';
 
+
 .favourite{
   display: grid;
   grid-template-columns: repeat(5, 1fr );
@@ -11,7 +12,7 @@
   display: grid;
   grid-auto-flow: row;
   justify-items: center;
-  border: 3px solid $blue;
+  border: 3px solid var(--c-blue);
 
   border-radius: 15px;
   padding: 2%;
@@ -26,13 +27,13 @@
   background: none;
   border: none;
   .favourite__icon-del{
-    fill: $blue;
+    fill: var(--c-blue);
 
   }
   &:hover{
     .favourite__icon-del{
       transition: all .3s ease;
-      fill: red;
+      fill: var(--c-delete);
     }
   }
 }
@@ -42,7 +43,7 @@
 }
 
 .favourite__name{
-  color: black;
+  color: var(--c-black);
 }
 
 .favourite__link{
@@ -51,10 +52,10 @@
   padding: 2% 5%;
   border-radius: 15px;
   // border: 3px solid $blue;
-  background: $blue-half;
-  color: black;
+  background: var(--c-tr-blue);
+  color: var(--c-black);
   &:hover{
-    background: $blue;
-    color: white;
+    background: var(--c-blue);
+    color: var(--c-white);
   }
 }

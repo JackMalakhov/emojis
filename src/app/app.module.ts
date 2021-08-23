@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { EmojiComponent } from './emoji/emoji.component';
-import { EmojiSearchpipe } from './shared/emoji-search.pipe';
+import { EmojiSearchpipe } from './pipe/emoji-search.pipe';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { DeletedComponent } from './deleted/deleted.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const appRoutes: Routes = [
   {path: '', component: EmojiComponent},
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EmojiService } from '../shared/emoji.service';
+import { EmojiInterface } from '../model/emoji-interface';
+import { EmojiService } from '../service/emoji.service';
 
 @Component({
   selector: 'app-favourite',
@@ -10,15 +11,25 @@ export class FavouriteComponent implements OnInit {
 
   constructor(public emojiService: EmojiService) { }
 
+  getList():EmojiInterface[]{
+    return this.emojiService.getList().filter(el=>el.star)
+  }
+  emojiList:EmojiInterface[] = [];
+
   ngOnInit(): void {
+    this.emojiList = this.getList().filter(el=>!el.del)
     // this.emojiService.fetchEmojis()
   }
 
   delEmoji(id:number){
     this.emojiService.delEmoji(id)
+    this.emojiList = this.getList().filter(el=>!el.del)
+
   }
-  onChange(id: number){
-    this.emojiService.onToggle(id)
+  starEmoji(id: number){
+    this.emojiService.starEmoji(id)
+    this.emojiList = this.getList().filter(el=>el.star)
+
   }
 
 }
